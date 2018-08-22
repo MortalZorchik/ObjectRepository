@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    var ProductsManager = {
+        arr: new Array(),
+        add: function() {
+            var product = {};
+            product.type = prompt('Тип продукта','');
+            product.price = prompt('Цена продукта','');
+            product.name = prompt('Название продукта','');
+            ProductsManager.arr.push(product);
+        },
+        remove: function(name) {
+            for (let i = 0; i < ProductsManager.arr.length; i++) {
+                if (ProductsManager.arr[i] == name){
+                    ProductsManager.arr.splice(i, 1);
+                }
+            }
+        },
+        getAll: function() {
+            var result = [];
+            for(var key in ProductsManager.arr){
+                result.push(JSON.stringify(ProductsManager.arr[key]));
+            }
+
+            return result;
+        },
+        remove: function() {
+            ProductsManager.arr = [];
+        }
+    };
+   ProductsManager.add();
+   ProductsManager.add();
+    alert (ProductsManager.arr);
+   // ProductsManager.remove("qwerty");
+   // alert (ProductsManager.arr);
+    alert(ProductsManager.getAll());
+    ProductsManager.remove();
+    alert (ProductsManager.arr);
+
+</script>
+</body>
+</html>
